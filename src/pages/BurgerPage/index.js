@@ -17,11 +17,22 @@ export default class BurgerPage extends Component{
         ingredients: {
             salad: 0,
             cheese: 0,
-            meat: 0,
             bacon: 0,
+            meat: 0
         },
         totalPrice:0,
-        purchasing: false
+        purchasing: false,
+        comfirmOrder: false
+    }
+    continueOrder = () =>{
+        console.log("Urgekjuukkee")
+    }
+    showComfirmModal = () =>{
+        this.setState({ comfirmOrder: true })
+        console.log(this.state.comfirmOrder)
+    }
+    closeComfirmModal = () =>{
+        this.setState({comfirmOrder: false})
     }
     ortsNemeh = type =>{
 
@@ -49,14 +60,18 @@ export default class BurgerPage extends Component{
 
         return(
             <div>
-                <Modal>
-                    <OrderSummary 
+                <Modal close={this.closeComfirmModal} show={this.state.comfirmOrder}>
+                <OrderSummary 
+                    close={this.closeComfirmModal}
+                    continue={this.continueOrder}
+                    price={this.state.totalPrice}
                     ingredients={this.state.ingredients}
                     names={NAMES}
                     />
                 </Modal>
                 <Burger orts={this.state.ingredients}/>
                 <BuildControls 
+                    order={this.showComfirmModal}
                     disabled={!this.state.purchasing}
                     price={this.state.totalPrice} 
                     disabledIngredient={disabledIngredient} 

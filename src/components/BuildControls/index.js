@@ -8,7 +8,7 @@ export const BuildControls = props =>{
             {
                 Object.keys(props.names).map(el =><BuildControl key={el} disabled={props.disabledIngredient} ortsHasah={props.ortsHasah} ortsNemeh={props.ortsNemeh} type={el} orts={props.names[el]}/>)
             }
-            <button disabled={props.disabled} className={css.OrderBtn} >Захиалах</button>
+            <button onClick={props.order} disabled={props.disabled} className={css.OrderBtn} >Захиалах</button>
         </div>
     )
 }

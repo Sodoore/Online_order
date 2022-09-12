@@ -8,6 +8,7 @@
     left: 15%;
     top: 30%;
     padding: 16px;
+    transition: all 0.5s ease-out;
 }
 
 @media (min-width: 600px){

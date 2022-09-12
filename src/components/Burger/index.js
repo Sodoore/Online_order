@@ -1,7 +1,8 @@
 import React from "react";
 import BurgerIngredient from "../BurgerIngredient";
 import css from "./style.module.css"
-const Burger = (props) =>{
+const Burger = (props) =>
+{
 
 
     const items = Object.entries(props.orts);
